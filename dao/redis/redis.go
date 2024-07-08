@@ -3,16 +3,16 @@ package redis
 import (
 	"context"
 	"github.com/redis/go-redis/v9"
+	"mxaof_blog/dao/global"
 )
 
 var GlobalRedis *redis.Client
 
 func RedisInit() error {
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     "47.95.199.174:6380",
-		Password: "",
-		DB:       0,
-		PoolSize: 20,
+		Addr:     global.GlobalConfig.Redis.Address,
+		Password: global.GlobalConfig.Redis.Password,
+		DB:       global.GlobalConfig.Redis.Db,
 	})
 	GlobalRedis = rdb
 

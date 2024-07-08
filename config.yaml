@@ -1,0 +1,11 @@
+mysql:
+  username: root
+  password: root
+  host: 47.95.199.174
+  port: 3307
+  dbName: practice
+
+redis:
+  address: 47.95.199.174:6380
+  password: ""
+  db: 0
