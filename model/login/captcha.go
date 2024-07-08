@@ -13,3 +13,7 @@ type SysCaptchaResponse struct {
 	CaptchaLength int    `json:"captchaLength"`
 	OpenCaptcha   bool   `json:"openCaptcha"`
 }
+type VerifyRequest struct {
+	CaptchaId     string `json:"captchaId"`
+	CaptchaAnswer string `json:"captchaAnswer"`
+}

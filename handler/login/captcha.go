@@ -5,6 +5,7 @@ import (
 	"github.com/mojocn/base64Captcha"
 	"log"
 	"mxaof_blog/model/login"
+	"mxaof_blog/tools"
 	"net/http"
 )
 
@@ -34,5 +35,25 @@ func GetCaptchaCode(c *gin.Context) {
 		PicPath:       b64s,
 		CaptchaLength: captcha.KeyLong,
 		OpenCaptcha:   true,
+	})
+}
+func Verify(c *gin.Context) {
+	in := login.VerifyRequest{}
+	err := c.ShouldBindJSON(&in)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if store.Verify(in.CaptchaId, in.CaptchaAnswer, true) {
+		c.JSON(http.StatusOK, tools.HttpCode{
+			Msg:  "验证成功",
+			Code: 0,
+			Data: struct{}{},
+		})
+		return
+	}
+	c.JSON(http.StatusOK, tools.HttpCode{
+		Msg:  "验证码错误",
+		Code: 100,
+		Data: struct{}{},
 	})
 }
