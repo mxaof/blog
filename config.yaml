@@ -9,3 +9,10 @@ redis:
   address: 47.95.199.174:6380
   password: ""
   db: 0
+
+Zap:
+  level: "debug"
+  fileName: "./log/blog.log"
+  maxSize: 1000
+  maxAge: 3600
+  maxBackups: 5

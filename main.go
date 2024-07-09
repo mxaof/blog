@@ -16,6 +16,10 @@ func main() {
 		log.Fatal(err)
 	}
 	fmt.Println("globalConfig:", global.GlobalConfig)
+	err = core.ZapInit()
+	if err != nil {
+		log.Fatal(err)
+	}
 	err = redis.RedisInit()
 	if err != nil {
 		log.Fatal(err)

@@ -4,6 +4,7 @@ examples/nohup.out
 examples/examples
 goTestOutPutPng/*
 ex
+*.log
 .codecov
 coverage.*
 *.exe
